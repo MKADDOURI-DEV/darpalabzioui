@@ -1,4 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+/**
+ * Couleurs basées sur des variables CSS (hex): sans ceci, les modificateurs
+ * d'opacité Tailwind (text-ivory/60, border-sand/20, bg-dark-brown/80...) ne
+ * génèrent aucun CSS. color-mix() applique l'alpha correctement.
+ */
+const cssVar = (name) => ({ opacityValue }) =>
+  opacityValue === undefined
+    ? `var(${name})`
+    : `color-mix(in srgb, var(${name}) calc(${opacityValue} * 100%), transparent)`;
+
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,37 +21,37 @@ module.exports = {
     },
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        background: cssVar('--background'),
+        foreground: cssVar('--foreground'),
         primary: {
-          DEFAULT: 'var(--primary)',
-          foreground: 'var(--primary-foreground)',
+          DEFAULT: cssVar('--primary'),
+          foreground: cssVar('--primary-foreground'),
         },
         secondary: {
-          DEFAULT: 'var(--secondary)',
-          foreground: 'var(--secondary-foreground)',
+          DEFAULT: cssVar('--secondary'),
+          foreground: cssVar('--secondary-foreground'),
         },
         accent: {
-          DEFAULT: 'var(--accent)',
-          foreground: 'var(--accent-foreground)',
+          DEFAULT: cssVar('--accent'),
+          foreground: cssVar('--accent-foreground'),
         },
         muted: {
-          DEFAULT: 'var(--muted)',
-          foreground: 'var(--muted-foreground)',
+          DEFAULT: cssVar('--muted'),
+          foreground: cssVar('--muted-foreground'),
         },
         card: {
-          DEFAULT: 'var(--card)',
-          foreground: 'var(--card-foreground)',
+          DEFAULT: cssVar('--card'),
+          foreground: cssVar('--card-foreground'),
         },
-        border: 'var(--border)',
-        input: 'var(--input)',
-        ring: 'var(--ring)',
-        ivory: 'var(--ivory)',
-        sand: 'var(--sand)',
-        terracotta: 'var(--terracotta)',
-        'deep-green': 'var(--deep-green)',
-        brass: 'var(--brass)',
-        'dark-brown': 'var(--dark-brown)',
+        border: cssVar('--border'),
+        input: cssVar('--input'),
+        ring: cssVar('--ring'),
+        ivory: cssVar('--ivory'),
+        sand: cssVar('--sand'),
+        terracotta: cssVar('--terracotta'),
+        'deep-green': cssVar('--deep-green'),
+        brass: cssVar('--brass'),
+        'dark-brown': cssVar('--dark-brown'),
       },
       borderRadius: {
         DEFAULT: 'var(--radius)',
