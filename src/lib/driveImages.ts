@@ -40,9 +40,9 @@ export const ROOM_FOLDERS = {
   triple: DRIVE_FOLDERS.folder3,
 } as const;
 
-// Vidéo du hero: mettre l'URL du fichier .mp4 ici (ex: '/assets/video/hero.mp4').
-// Vide = le hero affiche la photo à la place.
-export const HERO_VIDEO_URL = '';
+// Vidéo du hero: fichier compressé à placer dans public/assets/video/hero.mp4
+// Tant que le fichier n'existe pas (ou en cas d'erreur), le hero affiche la photo.
+export const HERO_VIDEO_URL = '/assets/video/hero.mp4';
 export const HERO_POSTER = driveImg(DRIVE_FOLDERS.espaces[0], 1920);
 
 // Moteur de réservation Nozoul

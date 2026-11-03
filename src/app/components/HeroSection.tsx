@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import { HERO_VIDEO_URL, HERO_POSTER } from '@/lib/driveImages';
@@ -14,12 +14,13 @@ interface HeroSectionProps {
 
 export default function HeroSection({ locale }: HeroSectionProps) {
   const t = getTranslation(locale);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        {HERO_VIDEO_URL ? (
+        {HERO_VIDEO_URL && !videoFailed ? (
           <video
             className="absolute inset-0 w-full h-full object-cover"
             src={HERO_VIDEO_URL}
@@ -28,7 +29,8 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
+            onError={() => setVideoFailed(true)}
           />
         ) : (
           <AppImage
