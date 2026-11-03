@@ -37,11 +37,13 @@ export default function RoomsPreviewSection({ locale }: RoomsPreviewSectionProps
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={idx === 0}
                 />
-                <div className="absolute top-3 right-3">
-                  <span className="bg-dark-brown/80 text-ivory text-xs px-2.5 py-1 rounded-sm font-medium">
-                    {t.rooms.from} {room.pricePerNight.toLocaleString()} MAD{t.rooms.perNight}
-                  </span>
-                </div>
+                {room.pricePerNight > 0 && (
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-dark-brown/80 text-ivory text-xs px-2.5 py-1 rounded-sm font-medium">
+                      {t.rooms.from} {room.pricePerNight.toLocaleString()} MAD{t.rooms.perNight}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="p-5">
                 <h3 className="font-serif text-lg font-semibold text-dark-brown mb-2">{room.name}</h3>

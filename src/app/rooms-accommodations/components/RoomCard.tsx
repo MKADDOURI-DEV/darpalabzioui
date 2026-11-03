@@ -65,11 +65,13 @@ export default function RoomCard({ room }: RoomCardProps) {
             </div>
           </>
         )}
-        <div className="absolute top-3 left-3">
-          <span className="bg-terracotta text-ivory text-xs px-2.5 py-1 rounded-sm font-medium">
-            À partir de {room.pricePerNight.toLocaleString()} MAD / nuit
-          </span>
-        </div>
+        {room.pricePerNight > 0 && (
+          <div className="absolute top-3 left-3">
+            <span className="bg-terracotta text-ivory text-xs px-2.5 py-1 rounded-sm font-medium">
+              À partir de {room.pricePerNight.toLocaleString()} MAD / nuit
+            </span>
+          </div>
+        )}
         {room.hasAC && (
           <div className="absolute top-3 right-3">
             <span className="bg-dark-brown/70 text-ivory text-xs px-2 py-1 rounded-sm flex items-center gap-1">
@@ -93,17 +95,19 @@ export default function RoomCard({ room }: RoomCardProps) {
         </p>
 
         {/* Specs */}
-        <div className="grid grid-cols-3 gap-3 mb-4">
+        <div className={`grid ${room.size ? 'grid-cols-3' : 'grid-cols-2'} gap-3 mb-4`}>
           <div className="text-center border border-border rounded-sm py-2">
             <Users size={14} className="mx-auto mb-1 text-muted-foreground" />
             <div className="text-xs text-muted-foreground">Capacité</div>
             <div className="text-sm font-semibold text-foreground">{room.capacity} pers.</div>
           </div>
-          <div className="text-center border border-border rounded-sm py-2">
-            <Maximize2 size={14} className="mx-auto mb-1 text-muted-foreground" />
-            <div className="text-xs text-muted-foreground">Surface</div>
-            <div className="text-sm font-semibold text-foreground">{room.size}</div>
-          </div>
+          {room.size && (
+            <div className="text-center border border-border rounded-sm py-2">
+              <Maximize2 size={14} className="mx-auto mb-1 text-muted-foreground" />
+              <div className="text-xs text-muted-foreground">Surface</div>
+              <div className="text-sm font-semibold text-foreground">{room.size}</div>
+            </div>
+          )}
           <div className="text-center border border-border rounded-sm py-2">
             <Bath size={14} className="mx-auto mb-1 text-muted-foreground" />
             <div className="text-xs text-muted-foreground">Salle de bain</div>
@@ -115,8 +119,7 @@ export default function RoomCard({ room }: RoomCardProps) {
         <div className="flex items-center gap-2 mb-4 text-sm text-muted-foreground">
           <BedDouble size={14} className="text-terracotta" />
           <span>{room.bedType}</span>
-          <span className="text-border">·</span>
-          <span className="text-xs">{room.floor}</span>
+          {room.floor && (<><span className="text-border">·</span><span className="text-xs">{room.floor}</span></>)}
         </div>
 
         {/* Amenities */}
@@ -132,10 +135,10 @@ export default function RoomCard({ room }: RoomCardProps) {
         {/* CTA */}
         <div className="flex gap-3">
           <Link
-            href={`/booking?room=${room.id}`}
+            href="/booking"
             className="btn-primary flex-1 justify-center text-xs py-2.5"
           >
-            Demander une réservation
+            Réserver
           </Link>
         </div>
       </div>

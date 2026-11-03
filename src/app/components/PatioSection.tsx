@@ -1,5 +1,6 @@
 import React from 'react';
 import AppImage from '@/components/ui/AppImage';
+import { driveImg, DRIVE_FOLDERS } from '@/lib/driveImages';
 
 export default function PatioSection() {
   return (
@@ -10,7 +11,7 @@ export default function PatioSection() {
           <div className="relative">
             <div className="relative h-96 lg:h-[520px] rounded-sm overflow-hidden shadow-warm-xl">
               <AppImage
-                src="https://img.rocket.new/generatedImages/rocket_gen_img_1f01e49fd-1772210725810.png"
+                src={driveImg(DRIVE_FOLDERS.espaces[1], 1600)}
                 alt="Patio central du Riad Dar Pa Labzioui avec fontaine en marbre et orangers en pot"
                 fill
                 className="object-cover"
@@ -19,7 +20,7 @@ export default function PatioSection() {
             </div>
             <div className="absolute -bottom-6 -right-4 w-48 h-36 rounded-sm overflow-hidden border-4 border-card shadow-warm-lg hidden lg:block">
               <AppImage
-                src="https://img.rocket.new/generatedImages/rocket_gen_img_1a4d8409c-1775414439447.png"
+                src={driveImg(DRIVE_FOLDERS.espaces[2], 800)}
                 alt="Terrasse du riad avec vue sur les toits de la médina de Meknès"
                 fill
                 className="object-cover"
@@ -46,7 +47,7 @@ export default function PatioSection() {
               { value: '2', label: 'Terrasses panoramiques' },
               { value: '1', label: 'Patio avec fontaine' },
               { value: '3', label: 'Salons marocains' },
-              { value: '5', label: 'Chambres privées' }]?.
+              { value: '3', label: 'Types de chambres' }]?.
               map((stat) =>
               <div key={`patio-stat-${stat?.label}`} className="border border-border rounded-sm p-4">
                   <div className="font-serif text-2xl font-bold text-terracotta tabular-nums">{stat?.value}</div>

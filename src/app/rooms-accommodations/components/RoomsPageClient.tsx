@@ -32,7 +32,7 @@ export default function RoomsPageClient() {
             Nos Chambres & Suites
           </h1>
           <p className="text-ivory/60 max-w-xl mx-auto text-sm leading-relaxed">
-            Cinq chambres privées, chacune ornée d&apos;artisanat marocain authentique. Chaque chambre dispose de sa propre salle de bain privative.
+            Chambres Double, Twin et Triple, ornées d&apos;artisanat marocain authentique. Chaque chambre dispose de sa propre salle de bain privative.
           </p>
           <div className="flex items-center justify-center gap-4 mt-6">
             <div className="h-px w-12 bg-sand/30" />
@@ -46,7 +46,7 @@ export default function RoomsPageClient() {
       <div className="bg-sand/20 border-b border-border">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-10 xl:px-16 py-3">
           <p className="text-xs text-muted-foreground text-center">
-            <strong>Note :</strong> Les tarifs indiqués sont des tarifs de référence configurables par l&apos;établissement. La disponibilité est confirmée par le propriétaire après réception de votre demande.
+            <strong>Note :</strong> Disponibilités et tarifs en temps réel dans notre moteur de réservation.
           </p>
         </div>
       </div>

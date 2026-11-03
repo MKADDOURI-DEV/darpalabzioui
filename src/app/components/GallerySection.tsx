@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import AppImage from '@/components/ui/AppImage';
+import { driveImg, DRIVE_FOLDERS, ROOM_FOLDERS } from '@/lib/driveImages';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface GalleryImage {
@@ -11,75 +12,39 @@ interface GalleryImage {
 }
 
 const GALLERY_IMAGES: GalleryImage[] = [
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_122f5a97d-1783765387267.png',
-  alt: 'Patio central du Riad Dar Pa Labzioui avec fontaine et arches traditionnelles marocaines',
-  category: 'patio'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_4a58aaa5d-1790934921462.png",
-  alt: 'Chambre Zellige ornée de mosaïques artisanales et lit double en bois de cèdre',
-  category: 'chambres'
-},
-{
-  src: "https://images.unsplash.com/photo-1734418563367-48d19df3a3cf",
-  alt: 'Chambre Moucharabieh avec fenêtres en bois sculpté filtrant la lumière en dentelle',
-  category: 'chambres'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_1a4d8409c-1775414439447.png",
-  alt: 'Chambre Terrasse avec accès privatif et vue panoramique sur les toits de Meknès',
-  category: 'chambres'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_419dd81f3-1790934920092.png",
-  alt: 'Suite Patio spacieuse ouvrant directement sur le patio central avec sa fontaine',
-  category: 'patio'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_13bed87c4-1773214096147.png",
-  alt: 'Terrasse panoramique du riad avec vue sur les minarets et les toits de la médina de Meknès',
-  category: 'terrasses'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_1af59c0d8-1774730920282.png',
-  alt: 'Vue panoramique depuis la terrasse du riad sur la médina historique de Meknès',
-  category: 'terrasses'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_1f01e49fd-1772210725810.png",
-  alt: 'Détail des zellige marocains artisanaux ornant les murs du riad',
-  category: 'architecture'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_1d5b9d53f-1772248726457.png",
-  alt: 'Détail architectural des arches et moucharabiehs en bois sculpté du riad',
-  category: 'architecture'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_123f55966-1776112343112.png",
-  alt: 'Chambre Argan avec décoration en bois naturel et ambiance chaleureuse',
-  category: 'chambres'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_19886b805-1772485129561.png",
-  alt: 'Salle de bain privative avec carrelage traditionnel marocain et douche à l\'italienne',
-  category: 'architecture'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_171f81f90-1783587013511.png",
-  alt: 'Salon marocain avec canapés traditionnels, coussins brodés et lanterne en laiton',
-  category: 'salons'
-}];
+  ...DRIVE_FOLDERS.espaces.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Espaces du Riad Dar Pa Labzioui, photo ${i + 1}`,
+    category: 'espaces',
+  })),
+  ...ROOM_FOLDERS.double.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre Double, photo ${i + 1}`,
+    category: 'chambres',
+  })),
+  ...ROOM_FOLDERS.twin.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre Twin, photo ${i + 1}`,
+    category: 'chambres',
+  })),
+  ...ROOM_FOLDERS.triple.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre Triple, photo ${i + 1}`,
+    category: 'chambres',
+  })),
+  ...DRIVE_FOLDERS.folder4.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre du Riad Dar Pa Labzioui, photo ${i + 1}`,
+    category: 'chambres',
+  })),
+];
 
 
 const CATEGORIES = [
 { key: 'all', label: 'Tout' },
-{ key: 'patio', label: 'Patio' },
 { key: 'chambres', label: 'Chambres' },
-{ key: 'terrasses', label: 'Terrasses' },
-{ key: 'architecture', label: 'Architecture' },
-{ key: 'salons', label: 'Salons' }];
+{ key: 'espaces', label: 'Espaces du riad' }];
+
 
 
 export default function GallerySection() {

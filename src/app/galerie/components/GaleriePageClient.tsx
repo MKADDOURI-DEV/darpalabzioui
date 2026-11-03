@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import PublicNav from '@/components/PublicNav';
 import PublicFooter from '@/components/PublicFooter';
 import AppImage from '@/components/ui/AppImage';
+import { driveImg, DRIVE_FOLDERS, ROOM_FOLDERS } from '@/lib/driveImages';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import type { Locale } from '@/lib/i18n';
 
@@ -15,87 +16,44 @@ interface GalleryImage {
 }
 
 const GALLERY_IMAGES: GalleryImage[] = [
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_448ad6292-1790935445838.png",
-  alt: 'Patio central du Riad Dar Pa Labzioui avec fontaine et arches traditionnelles marocaines',
-  category: 'patio',
-  span: 'large'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_419dd81f3-1790934920092.png',
-  alt: 'Suite Patio spacieuse ouvrant directement sur le patio central avec sa fontaine',
-  category: 'patio',
-  span: 'tall'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_4a58aaa5d-1790934921462.png',
-  alt: 'Chambre Zellige ornée de mosaïques artisanales et lit double en bois de cèdre',
-  category: 'chambres',
-  span: 'wide'
-},
-{
-  src: 'https://images.unsplash.com/photo-1734418563367-48d19df3a3cf',
-  alt: 'Chambre Moucharabieh avec fenêtres en bois sculpté filtrant la lumière en dentelle',
-  category: 'chambres',
-  span: 'normal'
-},
-{
-  src: "https://images.unsplash.com/photo-1697043316895-4db826f75f0e",
-  alt: 'Chambre Terrasse avec accès privatif et vue panoramique sur les toits de Meknès',
-  category: 'chambres',
-  span: 'normal'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_123f55966-1776112343112.png',
-  alt: 'Chambre Argan avec décoration en bois naturel et ambiance chaleureuse',
-  category: 'chambres',
-  span: 'tall'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_13bed87c4-1773214096147.png',
-  alt: 'Terrasse panoramique du riad avec vue sur les minarets et les toits de la médina de Meknès',
-  category: 'terrasses',
-  span: 'large'
-},
-{
-  src: "https://img.rocket.new/generatedImages/rocket_gen_img_1a4d8409c-1775414439447.png",
-  alt: 'Vue panoramique depuis la terrasse du riad sur la médina historique de Meknès',
-  category: 'terrasses',
-  span: 'wide'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_171f81f90-1783587013511.png',
-  alt: 'Salon marocain avec canapés traditionnels, coussins brodés et lanterne en laiton',
-  category: 'salons',
-  span: 'wide'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_1f01e49fd-1772210725810.png',
-  alt: 'Détail des zellige marocains artisanaux ornant les murs du riad',
-  category: 'details',
-  span: 'normal'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_1d5b9d53f-1772248726457.png',
-  alt: 'Détail architectural des arches et moucharabiehs en bois sculpté du riad',
-  category: 'details',
-  span: 'tall'
-},
-{
-  src: 'https://img.rocket.new/generatedImages/rocket_gen_img_19886b805-1772485129561.png',
-  alt: 'Salle de bain privative avec carrelage traditionnel marocain et douche à l\'italienne',
-  category: 'details',
-  span: 'normal'
-}];
+  ...DRIVE_FOLDERS.espaces.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Espaces du Riad Dar Pa Labzioui, photo ${i + 1}`,
+    category: 'espaces',
+    span: i === 0 ? 'large' : 'wide',
+  })),
+  ...ROOM_FOLDERS.double.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre Double, photo ${i + 1}`,
+    category: 'chambres',
+    span: 'normal',
+  })),
+  ...ROOM_FOLDERS.twin.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre Twin, photo ${i + 1}`,
+    category: 'chambres',
+    span: 'normal',
+  })),
+  ...ROOM_FOLDERS.triple.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre Triple, photo ${i + 1}`,
+    category: 'chambres',
+    span: 'normal',
+  })),
+  ...DRIVE_FOLDERS.folder4.map((id, i): GalleryImage => ({
+    src: driveImg(id, 1600),
+    alt: `Chambre du Riad Dar Pa Labzioui, photo ${i + 1}`,
+    category: 'chambres',
+    span: 'normal',
+  })),
+];
 
 
 const CATEGORIES = [
 { key: 'all', labelFr: 'Tout voir', labelEn: 'All', labelAr: 'الكل' },
-{ key: 'patio', labelFr: 'Le Patio', labelEn: 'Patio', labelAr: 'الفناء' },
 { key: 'chambres', labelFr: 'Chambres', labelEn: 'Rooms', labelAr: 'الغرف' },
-{ key: 'terrasses', labelFr: 'Terrasses', labelEn: 'Terraces', labelAr: 'الأسطح' },
-{ key: 'salons', labelFr: 'Salons', labelEn: 'Lounges', labelAr: 'الصالونات' },
-{ key: 'details', labelFr: 'Détails & Architecture', labelEn: 'Architecture', labelAr: 'العمارة' }];
+{ key: 'espaces', labelFr: 'Espaces du riad', labelEn: 'Riad spaces', labelAr: 'فضاءات الرياض' }];
+
 
 
 function getCategoryLabel(cat: typeof CATEGORIES[0], locale: Locale) {
@@ -185,7 +143,7 @@ export default function GaleriePageClient() {
       {/* Hero Banner */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <AppImage
-          src="https://img.rocket.new/generatedImages/rocket_gen_img_122f5a97d-1783765387267.png"
+          src="https://lh3.googleusercontent.com/d/19sM8ynyE_x8HjNafF3mzghWC_jool6yK=w1920"
           alt="Vue du patio du Riad Dar Pa Labzioui"
           fill
           priority

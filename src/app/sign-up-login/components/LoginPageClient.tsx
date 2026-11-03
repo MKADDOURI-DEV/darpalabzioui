@@ -71,7 +71,7 @@ export default function LoginPageClient() {
       {/* Left Panel — Brand Image */}
       <div className="hidden lg:flex lg:w-1/2 relative">
         <AppImage
-          src="https://img.rocket.new/generatedImages/rocket_gen_img_122f5a97d-1783765387267.png"
+          src="https://lh3.googleusercontent.com/d/19sM8ynyE_x8HjNafF3mzghWC_jool6yK=w1600"
           alt="Patio intérieur du Riad Dar Pa Labzioui avec fontaine en marbre et arches traditionnelles"
           fill
           priority
