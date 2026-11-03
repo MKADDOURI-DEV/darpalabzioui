@@ -33,7 +33,7 @@ export default function PublicFooter() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <AppLogo size={36} />
+              <AppLogo size={56} variant="light" />
               <div>
                 <div className="font-serif text-xl font-semibold text-ivory">Riad Dar Pa Labzioui</div>
                 <div className="text-xs tracking-widest uppercase text-ivory/50">Meknès · Maroc</div>

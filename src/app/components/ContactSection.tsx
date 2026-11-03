@@ -69,21 +69,24 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Map Placeholder */}
-          <div className="rounded-sm overflow-hidden border border-ivory/15 h-80 lg:h-auto min-h-[320px] bg-ivory/5 flex items-center justify-center">
-            <div className="text-center p-8">
-              <MapPin size={32} className="text-terracotta mx-auto mb-3" />
-              <p className="text-ivory/50 text-sm mb-2">Carte interactive</p>
-              <p className="text-ivory/30 text-xs">Intégration OpenStreetMap à configurer</p>
-              <a
-                href="https://maps.google.com/?q=81+Ksar+Chaachaa+Dar+Lakbira+Meknes+Morocco"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 text-xs text-sand hover:text-terracotta transition-colors"
-              >
-                Ouvrir dans Google Maps →
-              </a>
-            </div>
+          {/* Map */}
+          <div className="rounded-sm overflow-hidden border border-ivory/15 h-80 lg:h-auto min-h-[320px] bg-ivory/5 relative">
+            <iframe
+              title="Localisation du Riad Dar Pa Labzioui à Meknès"
+              src="https://www.google.com/maps?q=81+Ksar+Chaachaa+Dar+Lakbira+Meknes+Morocco&output=embed"
+              className="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a
+              href="https://maps.google.com/?q=81+Ksar+Chaachaa+Dar+Lakbira+Meknes+Morocco"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-3 left-3 bg-dark-brown/90 text-ivory text-xs px-3 py-2 rounded-sm hover:bg-terracotta transition-colors"
+            >
+              Ouvrir dans Google Maps →
+            </a>
           </div>
         </div>
       </div>

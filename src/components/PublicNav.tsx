@@ -56,7 +56,7 @@ export default function PublicNav({ locale = 'fr', onLocaleChange }: PublicNavPr
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              <AppLogo size={56} />
+              <AppLogo size={62} variant={scrolled ? 'dark' : 'light'} />
             </Link>
 
             {/* Desktop Nav */}

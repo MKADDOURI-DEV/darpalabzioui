@@ -46,7 +46,7 @@ export default function AdminSidebar() {
     >
       {/* Logo */}
       <div className={`flex items-center h-16 px-4 border-b border-ivory/10 overflow-hidden ${collapsed ? 'justify-center' : 'gap-3'}`}>
-        <AppLogo size={32} />
+        <AppLogo size={40} variant="light" />
         {!collapsed && (
           <div className="overflow-hidden">
             <div className="font-serif text-sm font-semibold text-ivory whitespace-nowrap">Dar Pa Labzioui</div>

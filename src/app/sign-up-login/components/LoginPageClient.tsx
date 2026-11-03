@@ -81,7 +81,7 @@ export default function LoginPageClient() {
         <div className="absolute inset-0 bg-gradient-to-br from-dark-brown/80 via-dark-brown/50 to-dark-brown/70" />
         <div className="relative z-10 flex flex-col justify-between p-12 w-full">
           <div className="flex items-center gap-3">
-            <AppLogo size={36} />
+            <AppLogo size={56} variant="light" />
             <div className="text-ivory">
               <div className="font-serif text-lg font-semibold">Riad Dar Pa Labzioui</div>
               <div className="text-xs tracking-widest text-ivory/50">Meknès · Maroc</div>
@@ -108,7 +108,7 @@ export default function LoginPageClient() {
         <div className="w-full max-w-sm">
           {/* Mobile Logo */}
           <div className="flex items-center gap-3 mb-8 lg:hidden">
-            <AppLogo size={32} />
+            <AppLogo size={48} variant="dark" />
             <div className="font-serif text-base font-semibold text-dark-brown">Riad Dar Pa Labzioui</div>
           </div>
 
