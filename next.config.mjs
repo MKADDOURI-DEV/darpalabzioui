@@ -10,6 +10,11 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    return [
+      { source: '/contact', destination: '/#contact', permanent: false },
+    ];
+  },
   images: {
     remotePatterns: imageHosts,
     minimumCacheTTL: 60,

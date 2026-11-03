@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { key: 'home', href: '/' },
   { key: 'rooms', href: '/rooms-accommodations' },
   { key: 'galerie', href: '/galerie' },
-  { key: 'contact', href: '/contact' },
+  { key: 'contact', href: '/#contact' },
 ];
 
 interface PublicNavProps {

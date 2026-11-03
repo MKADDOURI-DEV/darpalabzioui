@@ -8,7 +8,6 @@ import RoomsPreviewSection from './RoomsPreviewSection';
 import PatioSection from './PatioSection';
 import CuisineSection from './CuisineSection';
 import MeknesSection from './MeknesSection';
-import TestimonialsSection from './TestimonialsSection';
 import ContactSection from './ContactSection';
 import GallerySection from './GallerySection';
 import type { Locale } from '@/lib/i18n';
@@ -51,7 +50,7 @@ export default function HomePageClient() {
                 Niché au cœur de Dar Lakbira, le quartier historique de Meknès, notre riad est bien plus qu&apos;un hébergement : c&apos;est une maison familiale ouverte aux voyageurs du monde entier. La famille Labzioui perpétue les traditions de l&apos;hospitalité marocaine dans un cadre architectural d&apos;exception.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Cinq chambres privées, chacune ornée d&apos;artisanat marocain authentique, un patio baigné de lumière, deux terrasses panoramiques et des salons marocains — chaque recoin du riad raconte l&apos;histoire de Meknès impériale.
+                Des chambres Double, Twin et Triple ornées d&apos;artisanat marocain authentique, un patio baigné de lumière et des salons marocains — chaque recoin du riad raconte l&apos;histoire de Meknès impériale.
               </p>
             </div>
           </div>
@@ -62,7 +61,6 @@ export default function HomePageClient() {
         <CuisineSection />
         <MeknesSection />
         <GallerySection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <PublicFooter />

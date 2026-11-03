@@ -180,51 +180,6 @@ export default function LoginPageClient() {
               }
             </button>
           </form>
-
-          {/* Demo Credentials Box */}
-          <div className="mt-8 border border-brass/30 rounded-sm bg-brass/5 p-4">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-brass">Identifiants de démonstration</span>
-              <button
-                onClick={autofillCredentials}
-                className="text-xs text-terracotta hover:underline font-medium">
-                
-                Remplir automatiquement
-              </button>
-            </div>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <div className="text-xs text-muted-foreground mb-0.5">Email</div>
-                  <div className="text-xs font-mono text-foreground">{DEMO_CREDENTIALS.email}</div>
-                </div>
-                <button
-                  onClick={() => copyToClipboard('email', DEMO_CREDENTIALS.email)}
-                  className="p-1.5 text-muted-foreground hover:text-terracotta transition-colors flex-shrink-0"
-                  aria-label="Copier l'email">
-                  
-                  {copiedField === 'email' ? <Check size={13} className="text-deep-green" /> : <Copy size={13} />}
-                </button>
-              </div>
-              <div className="flex items-center justify-between gap-2">
-                <div>
-                  <div className="text-xs text-muted-foreground mb-0.5">Mot de passe</div>
-                  <div className="text-xs font-mono text-foreground">{DEMO_CREDENTIALS.password}</div>
-                </div>
-                <button
-                  onClick={() => copyToClipboard('password', DEMO_CREDENTIALS.password)}
-                  className="p-1.5 text-muted-foreground hover:text-terracotta transition-colors flex-shrink-0"
-                  aria-label="Copier le mot de passe">
-                  
-                  {copiedField === 'password' ? <Check size={13} className="text-deep-green" /> : <Copy size={13} />}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-xs text-muted-foreground mt-6 text-center">
-            Authentification de démonstration. Intégration Supabase Auth à configurer pour la production.
-          </p>
         </div>
       </div>
     </div>);

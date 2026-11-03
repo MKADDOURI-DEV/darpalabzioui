@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import AppLogo from '@/components/ui/AppLogo';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 // Inline SVG icons for social media
 function FacebookIcon({ size = 16 }: { size?: number }) {
@@ -71,8 +71,9 @@ export default function PublicFooter() {
               {[
                 { label: 'Accueil', href: '/' },
                 { label: 'Chambres', href: '/rooms-accommodations' },
+                { label: 'Galerie', href: '/galerie' },
                 { label: 'Réservation', href: '/booking' },
-                { label: 'Contact', href: '/contact' },
+                { label: 'Contact', href: '/#contact' },
               ]?.map((item) => (
                 <li key={`footer-nav-${item?.href}`}>
                   <Link href={item?.href} className="text-sm text-ivory/60 hover:text-terracotta transition-colors">
@@ -94,16 +95,22 @@ export default function PublicFooter() {
                 </a>
               </li>
               <li>
+                <a href="https://wa.me/212667625415" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 text-sm text-ivory/60 hover:text-terracotta transition-colors">
+                  <MessageCircle size={14} className="mt-0.5 flex-shrink-0" />
+                  WhatsApp
+                </a>
+              </li>
+              <li>
                 <a href="mailto:maisondhotesdarpalabzioui@gmail.com" className="flex items-start gap-2.5 text-sm text-ivory/60 hover:text-terracotta transition-colors break-all">
                   <Mail size={14} className="mt-0.5 flex-shrink-0" />
                   maisondhotesdarpalabzioui@gmail.com
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-2.5 text-sm text-ivory/60">
+                <a href="https://maps.google.com/?q=81+Ksar+Chaachaa+Dar+Lakbira+Meknes+Morocco" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2.5 text-sm text-ivory/60 hover:text-terracotta transition-colors">
                   <MapPin size={14} className="mt-0.5 flex-shrink-0" />
                   <span>81 Ksar Chaachaa, Dar Lakbira, Meknès 50000, Maroc</span>
-                </div>
+                </a>
               </li>
             </ul>
           </div>
