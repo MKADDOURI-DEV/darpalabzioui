@@ -32,6 +32,7 @@ export default function RoomCard({ room }: RoomCardProps) {
     <div className="bg-card border border-border rounded-sm shadow-warm-sm overflow-hidden card-hover">
       {/* Image Gallery */}
       <div className="relative h-64 group overflow-hidden">
+        <Link href={`/rooms-accommodations/${room.slug}`} className="absolute inset-0 z-0" aria-label={`Voir ${room.name}`}>
         <AppImage
           src={currentImage.src}
           alt={currentImage.alt}
@@ -39,18 +40,19 @@ export default function RoomCard({ room }: RoomCardProps) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+        </Link>
         {room.images.length > 1 && (
           <>
             <button
               onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-dark-brown/60 text-ivory rounded-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-dark-brown/80"
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-dark-brown/60 text-ivory rounded-sm flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-dark-brown/80"
               aria-label="Image précédente"
             >
               <ChevronLeft size={16} />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-dark-brown/60 text-ivory rounded-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-dark-brown/80"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-dark-brown/60 text-ivory rounded-sm flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 transition-opacity hover:bg-dark-brown/80"
               aria-label="Image suivante"
             >
               <ChevronRight size={16} />
@@ -83,7 +85,7 @@ export default function RoomCard({ room }: RoomCardProps) {
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="font-serif text-xl font-semibold text-dark-brown mb-2">{room.name}</h3>
+        <h3 className="font-serif text-xl font-semibold text-dark-brown mb-2"><Link href={`/rooms-accommodations/${room.slug}`} className="hover:text-terracotta transition-colors">{room.name}</Link></h3>
         <p className="text-sm text-muted-foreground leading-relaxed mb-4">
           {expanded ? room.description : `${room.description.substring(0, 120)}...`}
           <button
@@ -134,6 +136,12 @@ export default function RoomCard({ room }: RoomCardProps) {
 
         {/* CTA */}
         <div className="flex gap-3">
+          <Link
+            href={`/rooms-accommodations/${room.slug}`}
+            className="btn-outline-dark flex-1 justify-center text-xs py-2.5"
+          >
+            Voir détails
+          </Link>
           <Link
             href="/booking"
             className="btn-primary flex-1 justify-center text-xs py-2.5"

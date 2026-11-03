@@ -28,7 +28,7 @@ export default function RoomsPreviewSection({ locale }: RoomsPreviewSectionProps
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {previewRooms.map((room, idx) => (
             <div key={room.id} className="card-hover group bg-card rounded-sm overflow-hidden shadow-warm-sm border border-border">
-              <div className="room-image-zoom relative h-56 overflow-hidden">
+              <Link href={`/rooms-accommodations/${room.slug}`} className="room-image-zoom relative h-56 overflow-hidden block">
                 <AppImage
                   src={room.image}
                   alt={room.images[0]?.alt || `Chambre ${room.name} du Riad Dar Pa Labzioui`}
@@ -44,9 +44,9 @@ export default function RoomsPreviewSection({ locale }: RoomsPreviewSectionProps
                     </span>
                   </div>
                 )}
-              </div>
+              </Link>
               <div className="p-5">
-                <h3 className="font-serif text-lg font-semibold text-dark-brown mb-2">{room.name}</h3>
+                <h3 className="font-serif text-lg font-semibold text-dark-brown mb-2"><Link href={`/rooms-accommodations/${room.slug}`} className="hover:text-terracotta transition-colors">{room.name}</Link></h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-2">{room.description}</p>
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                   <span className="flex items-center gap-1.5">
@@ -66,7 +66,7 @@ export default function RoomsPreviewSection({ locale }: RoomsPreviewSectionProps
                   ))}
                 </div>
                 <Link
-                  href="/rooms-accommodations"
+                  href={`/rooms-accommodations/${room.slug}`}
                   className="flex items-center gap-2 text-sm font-medium text-terracotta hover:text-dark-brown transition-colors group-hover:gap-3"
                 >
                   Voir la chambre
